@@ -60,4 +60,16 @@ export default class ArrayExtension {
         }, initialValue);
     }
 
+    /**
+     * Shuffle elements in array.
+     * 
+     * @example <caption>Example usage of shuffle.</caption>
+     * // returns [5, 2, 3, 1, 4]
+     * ArrayExtension.shuffle([1, 2, 3, 4, 5]);
+     * 
+     * @param {any} array 
+     */
+    static shuffle(array) {
+        return array.sort(() => Math.random() - 0.5);
+    }
 }
