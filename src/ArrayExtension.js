@@ -72,4 +72,23 @@ export default class ArrayExtension {
     static shuffle(array) {
         return array.sort(() => Math.random() - 0.5);
     }
+    
+    /**
+     * Split elements in array by predicate.
+     * 
+     * The elements that pass the check are placed in the first array, other in second.
+     *
+     * @example <caption>Example usage of split.</caption>
+     * // returns [[1,2,3,4,0], [5, 6,7,8,9]]
+     * ArrayExtension.split([1,2,3,4,5,6,7,8,9,0], elem => elem < 5);
+     * 
+     * @param {any} array of two arrays
+     */
+    static split(array, predicate) {
+        return array.reduce((accum, elem) => {
+            predicate(elem) ? accum[0].push(elem) : accum[1].push(elem);
+            
+            return accum;
+        }, [[], []]);
+    }
 }
